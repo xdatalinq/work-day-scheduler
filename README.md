@@ -5,17 +5,17 @@ Create a simple calendar application that allows a user to save events for each 
 ![image](https://user-images.githubusercontent.com/89672040/160189591-c63547d0-ebac-4500-888e-3e8bd2ca7866.png)
 
 
-User Story
+User Story:
 
-AS AN employee with a busy schedule
-I WANT to add important events to a daily planner
-SO THAT I can manage my time effectively
+AS AN employee with a busy schedule<br>
+I WANT to add important events to a daily planner<br>
+SO THAT I can manage my time effectively<br>
 
-Acceptance Criteria
+Acceptance Criteria:
 
-GIVEN I am using a daily planner to create a schedule
-WHEN I open the planner
-THEN the current day is displayed at the top of the calendar
+GIVEN I am using a daily planner to create a schedule<br>
+WHEN I open the planner<br>
+THEN the current day is displayed at the top of the calendar<br>
 WHEN I scroll down
 THEN I am presented with time blocks for standard business hours
 WHEN I view the time blocks for that day
