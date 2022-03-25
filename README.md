@@ -2,7 +2,7 @@
 
 Create a simple calendar application that allows a user to save events for each hour of the day. This app will run in the browser and feature dynamically updated HTML and CSS powered by jQuery.
 
-![image](https://user-images.githubusercontent.com/89672040/160189269-b565c4dc-4917-49ad-89d9-40e7d3979812.png)
+![image](https://cdn.inst-fs-pdx-prod.inscloudgate.net/b55d7279-d5d0-4810-9338-c6fc880f332b/05-third-party-apis-homework-demo.gif?token=eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCIsImtpZCI6ImNkbiJ9.eyJyZXNvdXJjZSI6Ii9iNTVkNzI3OS1kNWQwLTQ4MTAtOTMzOC1jNmZjODgwZjMzMmIvMDUtdGhpcmQtcGFydHktYXBpcy1ob21ld29yay1kZW1vLmdpZiIsInRlbmFudCI6ImNhbnZhcyIsInVzZXJfaWQiOiIxNTA0MjAwMDAwMDAwMTcyNTMiLCJpYXQiOjE2NDgyMjU1NDgsImV4cCI6MTY0ODMxMTk0OH0.cl1TxzbXJClm3EmKdSQOjRUv-h4uNHCdJ6wSJgWeDNioSsqBVWQwpmSWZ_ihksW4tm4JWygv_oVFN9UJwZ3pLw&download=1&content_type=image%2Fjpeg)
 
 
 User Story
