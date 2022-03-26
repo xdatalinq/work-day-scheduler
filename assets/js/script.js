@@ -1,8 +1,10 @@
 // Variables
 var tasks = {};
 var timeslots = ["9AM","10AM","11AM","12PM","1PM","2PM","3PM","4PM","5PM"];
+
 var m = moment();
 var clock = m.hour();
+
 
 // Append time to header using moment.js
 $("#currentDay").append(m.format("dddd MMM Mo YYYY"));
@@ -47,9 +49,13 @@ timeslots.forEach(function(value) {
     saveButtonContent.appendTo(saveButton);
 });
 
+var textInputEl = document.querySelector('.textInput');
+
 // Apply backgrounds based on current hour
- var backgroundCheck = function(event) {
-    var idPull = (event.target.id) 
+ var backgroundCheck = function() {
+     
+    var idPull = (textInputEl.id)
+    console.log(idPull); 
     if (idPull < clock) {
         console.log("PAST");
     } else if (idPull === clock) {
@@ -65,7 +71,9 @@ timeslots.forEach(function(value) {
 // Interval to update backgrounds
 setInterval(function () {   
     console.log('tick')
-    $(".textInput").each(backgroundCheck);
+    console.log(textInputEl);
+    console.log(textInputEl.id)
+    $(textInputEl).each(backgroundCheck);
 }, (1000*3));
 
 // Create textArea on focus
