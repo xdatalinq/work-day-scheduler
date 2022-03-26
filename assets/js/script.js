@@ -32,9 +32,10 @@ timeslots.forEach(function(value) {
         timeBlock = $('<div class="d-flex justify-content-center align-items-center col-12 col-lg-2 bg-secondary time-block"></div>'),
         timeBlockContent = $('<h2 class="py-0 my-0">' + value + '</h2>'),
         textInput = $('<div class="d-flex align-items-center col-9 col-lg-9 align-self-center textInput" id="'+ intValue +'"></div>'),
-        textInputContent = $('<p class="my-auto h-75 w-100 pt-3"></p>');
+        textInputContent = $('<p class="my-auto h-75 w-100 pt-3"></p>'),
         saveButton = $('<button class="col-3 col-lg-1 btn btn-secondary saveButton d-flex justify-content-center align-items-center"></button>'),
         saveButtonContent = $('<i class="fa-solid fa-floppy-disk"></i>');
+        
         
 
     rowContainer.appendTo(".container");
@@ -47,17 +48,24 @@ timeslots.forEach(function(value) {
 });
 
 // Apply backgrounds based on current hour
-setInterval(function () {   
-    $(".textInput").each = function() {
-        var idPull = $("#id"); 
-        if (idPull < clock) {
-            console.log("PAST");
-        } else if (idPull === clock) {
-            console.log("PRESENT");
-        } else if (idPull > clock){
-            console.log("FUTURE");
-        }
+ var backgroundCheck = function(event) {
+    var idPull = (event.target.id) 
+    if (idPull < clock) {
+        console.log("PAST");
+    } else if (idPull === clock) {
+        console.log("PRESENT");
+    } else if (idPull > clock){
+        console.log("FUTURE");
+    } else {
+        console.log('no conditions matched')
+        console.log(idPull, 'vs', clock)
     }
+};
+
+// Interval to update backgrounds
+setInterval(function () {   
+    console.log('tick')
+    $(".textInput").each(backgroundCheck);
 }, (1000*3));
 
 // Create textArea on focus
