@@ -7,9 +7,6 @@ var clock = parseInt(moment().format('H'))
 // Append time to header using moment.js
 $("#currentDay").text(today);
 
-// Event listeners
-$(".saveButton").on("click", saveTasks);
-
 // Create elements for each timeslot
 timeslots.forEach(function(value) {
     var rowContainer = $('<div class="row mb-1 main past" id=' + value + '></div>'),
@@ -110,11 +107,13 @@ $(".textInput").on("click", "p", function() {
     textInput.trigger("focus");
 });
 
-// Save tasks
-var saveTasks = function() {
-    localStorage.setItem("tasks", JSON.stringify(tasks));
-    console.log("Tasks saved!");
-};
+// Task field was un-focused
+$(".textInput").on("blur", "textarea", function() {
+    console.log(tasks);
+    // get current value of textarea
+    task = $(this).val();
+    console.log(task);
+});
 
 // Load tasks
 var loadTasks = function() {
@@ -125,11 +124,21 @@ var loadTasks = function() {
     console.log("Tasks loaded!");
 };
 
-// load tasks for the first time
-loadTasks();
+// Save tasks
+var saveTasks = function() {
+    console.log("Tasks saved!");
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+    
+};
+
+// Event listeners
+$(".saveButton").on("click", saveTasks);
 
 // Interval to update backgrounds
 setInterval(function () {
     backgroundCheck();
     console.log("tick");
 }, 1000);
+
+// load tasks for the first time
+loadTasks();
