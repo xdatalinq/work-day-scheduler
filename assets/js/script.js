@@ -10,28 +10,13 @@ $("#currentDay").text(today);
 // Event listeners
 $(".saveButton").on("click", saveTasks);
 
-// Load tasks
-var loadTasks = function() {
-    tasks = JSON.parse(localStorage.getItem("tasks"));
-    if (!tasks) {
-      tasks = {};
-    }
-    console.log("Tasks loaded!");
-};
-
-// Save tasks
-var saveTasks = function() {
-    localStorage.setItem("tasks", JSON.stringify(tasks));
-    console.log("Tasks saved!");
-  };
- 
 // Create elements for each timeslot
 timeslots.forEach(function(value) {
     var rowContainer = $('<div class="row mb-1 main past" id=' + value + '></div>'),
         timeBlock = $('<div class="d-flex justify-content-center align-items-center col-12 col-lg-2 bg-secondary time-block"></div>'),
         timeBlockContent = $('<h2 class="py-0 my-0">' + value + '</h2>'),
         textInput = $('<div class="d-flex align-items-center col-9 col-lg-9 align-self-center textInput"></div>'),
-        textInputContent = $('<p class="my-auto h-75 w-100 pt-3"></p>'),
+        textInputContent = $('<p class="my-auto h-100 w-100 ptag"></p>'),
         saveButton = $('<button class="col-3 col-lg-1 btn btn-secondary saveButton d-flex justify-content-center align-items-center"></button>'),
         saveButtonContent = $('<i class="fa-solid fa-floppy-disk"></i>');
         
@@ -110,18 +95,41 @@ var backgroundCheck = function() {
     })        
 };
 
+// Task text was clicked
+$(".textInput").on("click", "p", function() {
+    // get current text of p element
+    var text = $(this)
+      .text()
+      .trim();
+  
+    // replace p element with a new textarea
+    var textInput = $("<textarea>").addClass("my-auto h-75 w-100 pt-3").val(text);
+    $(this).replaceWith(textInput);
+  
+    // auto focus new element
+    textInput.trigger("focus");
+});
+
+// Save tasks
+var saveTasks = function() {
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+    console.log("Tasks saved!");
+};
+
+// Load tasks
+var loadTasks = function() {
+    tasks = JSON.parse(localStorage.getItem("tasks"));
+    if (!tasks) {
+      tasks = {};
+    }
+    console.log("Tasks loaded!");
+};
+
+// load tasks for the first time
+loadTasks();
+
 // Interval to update backgrounds
 setInterval(function () {
     backgroundCheck();
-}, (1000));
-
-// Create textArea on focus
-/*
- if (currentId > clock) {
-            $(this).addClass("future") && $(this).removeClass("past");
-        } else if (currentId === clock) {
-            $(this).addClass("present") && $(this).removeClass("past");
-        } else {
-            $(this).addClass("past");
-        }
-        */
+    console.log("tick");
+}, 1000);

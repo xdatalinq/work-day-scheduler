@@ -9,10 +9,8 @@ textarea{
   border: none;
   resize: none;
   color: #000000;
-  border-left: 1px solid black;
-  padding: 10px;
+  padding: 5px;
 }
-
 
 .jumbotron {
   text-align: center;
@@ -21,7 +19,6 @@ textarea{
   border-radius: 0;
   border-bottom: 10px solid black;
 }
-
 
 .description{
   white-space: pre-wrap;
@@ -76,4 +73,8 @@ textarea{
 .saveButton i:hover {
   font-size: 20px;
   transition: all .3s ease-in-out;
+}
+
+.textInput {
+  height: 70px
 }
