@@ -1,13 +1,11 @@
 // Variables
 var tasks = {};
 var timeslots = ["9AM","10AM","11AM","12PM","1PM","2PM","3PM","4PM","5PM"];
-
-var m = moment();
-var clock = m.hour();
-
+var today = moment().format("dddd, MMMM Do");
+var clock = parseInt(moment().format('H'))
 
 // Append time to header using moment.js
-$("#currentDay").append(m.format("dddd MMM Mo YYYY"));
+$("#currentDay").text(today);
 
 // Event listeners
 $(".saveButton").on("click", saveTasks);
@@ -29,17 +27,14 @@ var saveTasks = function() {
  
 // Create elements for each timeslot
 timeslots.forEach(function(value) {
-    var intValue = parseInt(value),
-        rowContainer = $('<div class="row mb-1" id=' + value + '></div>'),
+    var rowContainer = $('<div class="row mb-1 main past" id=' + value + '></div>'),
         timeBlock = $('<div class="d-flex justify-content-center align-items-center col-12 col-lg-2 bg-secondary time-block"></div>'),
         timeBlockContent = $('<h2 class="py-0 my-0">' + value + '</h2>'),
-        textInput = $('<div class="d-flex align-items-center col-9 col-lg-9 align-self-center textInput" id="'+ intValue +'"></div>'),
+        textInput = $('<div class="d-flex align-items-center col-9 col-lg-9 align-self-center textInput"></div>'),
         textInputContent = $('<p class="my-auto h-75 w-100 pt-3"></p>'),
         saveButton = $('<button class="col-3 col-lg-1 btn btn-secondary saveButton d-flex justify-content-center align-items-center"></button>'),
         saveButtonContent = $('<i class="fa-solid fa-floppy-disk"></i>');
         
-        
-
     rowContainer.appendTo(".container");
     timeBlock.appendTo(rowContainer);
     timeBlockContent.appendTo(timeBlock);
@@ -49,31 +44,24 @@ timeslots.forEach(function(value) {
     saveButtonContent.appendTo(saveButton);
 });
 
-var textInputEl = document.querySelector('.textInput');
-
 // Apply backgrounds based on current hour
- var backgroundCheck = function() {
-     
-    var idPull = (textInputEl.id)
-    console.log(idPull); 
-    if (idPull < clock) {
-        console.log("PAST");
-    } else if (idPull === clock) {
-        console.log("PRESENT");
-    } else if (idPull > clock){
-        console.log("FUTURE");
-    } else {
-        console.log('no conditions matched')
-        console.log(idPull, 'vs', clock)
-    }
+var backgroundCheck = function() {
+    $(".main").each(function() {
+        var currentId = parseInt($(this).attr("id"));
+        if (currentId > clock) {
+            $(this).addClass("future") && $(this).removeClass("past");
+        } else if (currentId === clock) {
+            $(this).addClass("present") && $(this).removeClass("past");
+        } else {
+            $(this).addClass("past");
+        }
+    }) 
 };
 
 // Interval to update backgrounds
-setInterval(function () {   
-    console.log('tick')
-    console.log(textInputEl);
-    console.log(textInputEl.id)
-    $(textInputEl).each(backgroundCheck);
-}, (1000*3));
+setInterval(function () {
+    backgroundCheck();
+}, (1000));
+
 
 // Create textArea on focus
