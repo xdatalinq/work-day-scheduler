@@ -47,15 +47,67 @@ timeslots.forEach(function(value) {
 // Apply backgrounds based on current hour
 var backgroundCheck = function() {
     $(".main").each(function() {
-        var currentId = parseInt($(this).attr("id"));
-        if (currentId > clock) {
-            $(this).addClass("future") && $(this).removeClass("past");
-        } else if (currentId === clock) {
-            $(this).addClass("present") && $(this).removeClass("past");
-        } else {
-            $(this).addClass("past");
-        }
-    }) 
+        switch (currentId = parseInt($(this).attr("id"))) {
+            case 1:
+                currentId = 13;
+                if (currentId > clock) {
+                    $(this).addClass("future") && $(this).removeClass("past") && $(this).removeClass("present");
+                    } else if (currentId === clock) {
+                        $(this).addClass("present") && $(this).removeClass("past") && $(this).removeClass("future");
+                    } else {
+                        $(this).addClass("past") && $(this).removeClass("present") && $(this).removeClass("future");
+                    }
+                break;
+            case 2:
+                currentId = 14;
+                if (currentId > clock) {
+                    $(this).addClass("future") && $(this).removeClass("past") && $(this).removeClass("present");
+                    } else if (currentId === clock) {
+                        $(this).addClass("present") && $(this).removeClass("past") && $(this).removeClass("future");
+                    } else {
+                        $(this).addClass("past") && $(this).removeClass("present") && $(this).removeClass("future");
+                    }
+                break;
+            case 3:
+                currentId = 15;
+                if (currentId > clock) {
+                    $(this).addClass("future") && $(this).removeClass("past") && $(this).removeClass("present");
+                    } else if (currentId === clock) {
+                        $(this).addClass("present") && $(this).removeClass("past") && $(this).removeClass("future");
+                    } else {
+                        $(this).addClass("past") && $(this).removeClass("present") && $(this).removeClass("future");
+                    }
+                break;
+            case 4:
+                currentId = 16;
+                if (currentId > clock) {
+                    $(this).addClass("future") && $(this).removeClass("past") && $(this).removeClass("present");
+                    } else if (currentId === clock) {
+                        $(this).addClass("present") && $(this).removeClass("past") && $(this).removeClass("future");
+                    } else {
+                        $(this).addClass("past") && $(this).removeClass("present") && $(this).removeClass("future");
+                    }
+                break;
+            case 5:
+                currentId = 17;
+                if (currentId > clock) {
+                    $(this).addClass("future") && $(this).removeClass("past") && $(this).removeClass("present");
+                    } else if (currentId === clock) {
+                        $(this).addClass("present") && $(this).removeClass("past") && $(this).removeClass("future");
+                    } else {
+                        $(this).addClass("past") && $(this).removeClass("present") && $(this).removeClass("future");
+                    }
+                break;
+            default:
+                if (currentId > clock) {
+                    $(this).addClass("future") && $(this).removeClass("past") && $(this).removeClass("present");
+                    } else if (currentId === clock) {
+                        $(this).addClass("present") && $(this).removeClass("past") && $(this).removeClass("future");
+                    } else {
+                        $(this).addClass("past") && $(this).removeClass("present") && $(this).removeClass("future");
+                    };
+        };
+    })        
 };
 
 // Interval to update backgrounds
@@ -63,5 +115,13 @@ setInterval(function () {
     backgroundCheck();
 }, (1000));
 
-
 // Create textArea on focus
+/*
+ if (currentId > clock) {
+            $(this).addClass("future") && $(this).removeClass("past");
+        } else if (currentId === clock) {
+            $(this).addClass("present") && $(this).removeClass("past");
+        } else {
+            $(this).addClass("past");
+        }
+        */
