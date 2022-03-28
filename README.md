@@ -3,7 +3,8 @@
 Create a simple calendar application that allows a user to save events for each hour of the day. This app will run in the browser and feature dynamically updated HTML and CSS powered by jQuery.
 
 ![image](https://user-images.githubusercontent.com/89672040/160189591-c63547d0-ebac-4500-888e-3e8bd2ca7866.png)
-
+Repo: https://github.com/xdatalinq/work-day-scheduler <br></br>
+Live: https://xdatalinq.github.io/work-day-scheduler/
 
 User Story:
 
