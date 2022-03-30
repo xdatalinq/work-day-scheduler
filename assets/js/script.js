@@ -95,8 +95,6 @@ var backgroundCheck = function() {
 // Load tasks
 var loadTasks = function() {
     console.log("Tasks loaded!");
-    // Get item from local storage if any
-    
     $("#9AMb").val(localStorage.getItem("9am"));
     $("#10AMb").val(localStorage.getItem("10am"));
     $("#11AMb").val(localStorage.getItem("11am"));
@@ -110,7 +108,6 @@ var loadTasks = function() {
 
 // Save tasks
 var saveTasks = function() {
-    backgroundCheck;
     console.log("Tasks saved!");
     var A = $("#9AMb").val();
     localStorage.setItem("9am", A);
@@ -130,6 +127,7 @@ var saveTasks = function() {
     localStorage.setItem("4pm", H);
     var I = $("#5PMb").val();
     localStorage.setItem("5am", I);
+    backgroundCheck();
 };
 
 // Event listener
